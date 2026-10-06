@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+
+  --color-forest-950: #07120e;
+  --color-forest-900: #0c1f18;
+  --color-forest-800: #143528;
+  --color-forest-700: #1a4a35;
+  --color-forest-600: #236b4a;
+  --color-forest-500: #2d8a5e;
+  --color-forest-400: #4aad78;
+  --color-forest-300: #7bc49a;
+  --color-forest-200: #b5dfc6;
+  --color-forest-100: #dcefe4;
+  --color-forest-50: #eef7f1;
+
+  --color-mist-50: #f3f5f2;
+  --color-mist-100: #e6ebe4;
+  --color-mist-200: #cfd8cc;
+  --color-mist-300: #aeb9aa;
+
+  --color-copper-300: #d4b892;
+  --color-copper-400: #c9a06a;
+  --color-copper-500: #b8956c;
+  --color-copper-600: #9a784f;
+
+  --color-asphalt-950: #0a0e0c;
+  --color-asphalt-900: #121816;
+  --color-asphalt-800: #1c2420;
+  --color-asphalt-700: #2a3530;
+  --color-asphalt-600: #3d4a44;
+  --color-asphalt-400: #8a9790;
+  --color-asphalt-300: #a8b3ad;
+  --color-asphalt-200: #c5cdc8;
+  --color-asphalt-100: #e2e6e3;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-forest-950);
+    color: var(--color-mist-50);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-forest-600);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply font-display text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-forest-600;
+  }
+
+  .eyebrow-light {
+    @apply font-display text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-copper-400;
+  }
+
+  .heading-section {
+    @apply font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.15] text-balance;
+  }
+
+  .lead {
+    @apply text-base sm:text-lg leading-relaxed max-w-2xl;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease both;
+}
+
+.animate-ken-burns {
+  animation: ken-burns 18s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.12s;
+}
+.delay-2 {
+  animation-delay: 0.24s;
+}
+.delay-3 {
+  animation-delay: 0.36s;
+}
+.delay-4 {
+  animation-delay: 0.48s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-ken-burns {
+    animation: none !important;
+  }
+}
